@@ -1,0 +1,23 @@
+.col-sm-2{
+	font-size: 15px;
+	padding: 25px 25px 25px 15px;
+	background-color: #fe9126;
+}
+.col-sm-1{
+	font-size: 15px;
+	padding: 25px 25px 25px 15px;
+	background-color: #fe9126;
+}
+.col-sm-11{
+	
+}
+.head1{
+	text-align: center;
+	font-size: 40px;
+    color: #fe9126;
+}
+#queries{
+
+	background-color: white;
+	padding: 5px 35px 25px 35px;
+}

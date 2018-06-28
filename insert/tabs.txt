@@ -1,0 +1,14 @@
+create table supermarket.emp_details(e_id varchar(10) primary key,emp_name varchar(20),age int,sex varchar(6),address varchar(20),designation varchar(20),salary int,dept_name varchar(20));
+
+create table supermarket.department(dept_id varchar(10) primary key,dept_name varchar(20),floor varchar(10),mgr_id varchar(10),foreign key(mgr_id) references emp_details(e_id) on delete cascade);
+
+create table supermarket.mgr_details(mgr_id varchar(10),mgr_name varchar(20),primary key(mgr_id,mgr_name),phone_no int,address varchar(20),email_id varchar(50),foreign key(mgr_id) references emp_details(e_id) on delete cascade);
+
+create table supermarket.items(item_id varchar(10) primary key,item_name varchar(20),quantity int,mfd_date date,exp_date date,brand varchar(20),item_units int,mrp int,dept_id varchar(10),foreign key(dept_id) refrences department(dept_id) on delete cascade);
+
+create table supermarket.storage(items_units int,item_id varchar(10),item_name varchar(20),primary key(item_id,item_name),dept_name varchar(20),exp_date date,foreign key(item_id) references items(item_id) on delete cascade);
+
+create table supermarket.customer_details(cust_id varchar(10) primary key,name varchar(20),sex varchar(6),phone_no int,address varchar(20),grades int);
+
+create table supermarket.items_sold(cust_id varchar(10),item_id varchar(10),dept_id varchar(10),primary key(cust_id,item_id,dept_id),item_name varchar(20),exp_date date,mrp int,no_of_units int,total int,foreign key(cust_id) references customer_details(cust_id) on delete cascade,foreign key(item_id) references items(item_id) on delete cascade,foreign key(dept_id) references department(dept_id) on delete cascade);
+
